@@ -1,0 +1,10 @@
+#notebook {
+  font-size: 1.5em;
+}
+
+.delete {
+  height:1.3em;
+  float:right;
+  position:absolute;
+  right:.5em;
+}

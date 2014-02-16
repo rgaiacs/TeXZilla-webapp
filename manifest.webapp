@@ -1,0 +1,22 @@
+{
+  "name": "TeXZilla",
+  "description": "(La)TeX to MathML",
+  "type": "web",
+  "launch_path": "/index.html",
+  "developer": {
+    "name": "Raniere Silva and Frédéric Wang",
+    "url": "https://github.com/r-gaia-cs/TeXZilla-webapp"
+  },
+  "permissions": {},
+  "locales": {
+    "en-US": {
+      "name": "TeXZilla",
+      "description": "(La)TeX to MathML"
+    }
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "128": "/style/icons/TeXZilla-128.png"
+  },
+  "orientation": "default"
+}
