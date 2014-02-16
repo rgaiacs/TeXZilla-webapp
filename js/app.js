@@ -17,16 +17,21 @@ function update_equation(ev) {
 
 function add_equation() {
   var tex = document.getElementById('tex-input');
+  if (tex.value === '') {
+    console.log('Empty textarea.');
+    return 1;
+  }
+  var notebook = document.getElementById('notebook');
+  var equation = TeXZilla.toMathML(tex.value, true);
+  equation.addEventListener('click', update_equation, false);
   if (EQUATION) {
-    EQUATION.outerHTML = TeXZilla.toMathMLString(tex.value, true);
+    notebook.insertBefore(equation, EQUATION);
+    notebook.removeChild(EQUATION);
     var action = document.getElementById('tex-button');
     action.innerHTML = 'Add';
     EQUATION = null;
   }
   else {
-    var notebook = document.getElementById('notebook');
-    var equation = TeXZilla.toMathML(tex.value, true);
-    equation.addEventListener('click', update_equation, false);
     var del = document.createElement('img');
     del.setAttribute('src', 'style/images/icons/actionicon_delete_red_30x30.png');
     del.setAttribute('class', 'delete');
