@@ -1,9 +1,15 @@
 function rm_equation(delete_icon) {
-  var notebook = delete_icon.parentElement;
-  var equation = delete_icon.nextElementSibling;
+  if (RM_ENABLE) {
+    var notebook = delete_icon.parentElement;
+    var equation = delete_icon.nextElementSibling;
 
-  notebook.removeChild(equation);
-  notebook.removeChild(delete_icon);
+    notebook.removeChild(equation);
+    notebook.removeChild(delete_icon);
+  }
+  else {
+    console.log('In update state.');
+    return 1;
+  }
 }
 
 function update_equation(ev) {
@@ -13,6 +19,7 @@ function update_equation(ev) {
   input.value = TeXZilla.getTeXSource(this);
 
   EQUATION = this;
+  RM_ENABLE = null;
 }
 
 function add_equation() {
@@ -30,6 +37,7 @@ function add_equation() {
     var action = document.getElementById('tex-button');
     action.innerHTML = 'Add';
     EQUATION = null;
+    RM_ENABLE = true;
   }
   else {
     var del = document.createElement('img');
@@ -45,3 +53,4 @@ function add_equation() {
 }
 
 EQUATION = null;
+RM_ENABLE = true;
