@@ -1,3 +1,5 @@
+@import url('mathml-fonts/resource/mathml.css');
+
 #notebook {
   font-size: 1.5em;
 }
