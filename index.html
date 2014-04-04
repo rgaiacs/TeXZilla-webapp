@@ -20,15 +20,15 @@
 </header>
 <div>
   <div id='notebook' style="margin:5px;">
-    <math id='preview' display='block'><mfrac><mi>x</mi><mi>y</mi></mfrac></math>
   </div>
-  <textarea id='tex-input' style="width:100%;" onkeyup='preview_equation()'>\frac{1}{2}</textarea>
+  <textarea id='tex-input' style="width:100%;" onkeyup='preview_equation()'></textarea>
   <div id='math-keyboard'>
   </div>
-  <button id='tex-button' type='button' onclick='add_equation()'>Add</button>
+  <button id='tex-button' type='button' onclick='add_equation_button()'>Add</button>
 <script>
 window.onload = function() {
 build_keyboard(LAYOUT, document.getElementById('math-keyboard'));
+setup_old_equations();
 }
 </script>
 </div>

@@ -17,10 +17,10 @@ function press_key() {
         suffix = ' ';
 
     new_value = String.concat(input.value.substring(0, start),
-            prefix,
-            this.getAttribute("tex"),
-            suffix,
-            input.value.substring(end));
+        prefix,
+        this.getAttribute("tex"),
+        suffix,
+        input.value.substring(end));
 
     input.value = new_value;
 
@@ -32,12 +32,12 @@ function build_keyboard(aLayout, aDiv) {
     var j;
     var key;
     var keyboard = document.createElement("div");
-    for(i = 0; i < aLayout.keys.length; i++) {
-        for(j = 0; j < aLayout.keys[i].length; j++) {
+    for (i = 0; i < aLayout.keys.length; i++) {
+        for (j = 0; j < aLayout.keys[i].length; j++) {
             key = document.createElement("button");
             key.innerHTML = aLayout.keys[i][j].key;
             key.setAttribute("tex", aLayout.keys[i][j].tex);
-            key.setAttribute("style", "float:left; width:" + 100/aLayout.keys[i].length + "%;");
+            key.setAttribute("style", "float:left; width:" + 100 / aLayout.keys[i].length + "%;");
             key.addEventListener("click", press_key, false);
             keyboard.appendChild(key);
         }
