@@ -1,7 +1,7 @@
-.PHONY: style/icons
-
 KEYBOARDFILES = js/keyboard-layout.js \
 		js/keyboard-render.js
+
+ICONS = $(foreach size, 32 60 90 120 128 256, style/icons/TeXZilla-$(size).png)
 
 js/keyboard.js: ${KEYBOARDFILES}
 	cat $^ > $@
@@ -12,7 +12,7 @@ js/TeXZilla.js: TeXZilla/TeXZilla.js
 TeXZilla/TeXZilla.js:
 	$(MAKE) -C TeXZilla build
 
-style/icons: style/icons/TeXZilla.svg
-	convert -background none $< -resize 16 $@/TeXZilla-16.png
-	convert -background none $< -resize 48 $@/TeXZilla-48.png
-	convert -background none $< -resize 128 $@/TeXZilla-128.png
+icons: ${ICONS}
+
+style/icons/%.png: style/icons/TeXZilla.svg
+	convert -background none $< -resize $(subst style/icons/TeXZilla-,,$(basename $@)) $@
