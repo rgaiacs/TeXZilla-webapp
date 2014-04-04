@@ -1,6 +1,30 @@
 function press_key() {
     var input = document.getElementById("tex-input");
-    input.value = input.value + this.getAttribute("tex");
+    var new_value, prefix, suffix;
+    var start = input.selectionStart;
+    var end = input.selectionEnd;
+
+    console.log("selectionEnd = " + input.selectionEnd);
+    console.log("selectionStart = " + input.selectionStart);
+
+    if (start === 0 || input.value[start - 1] === ' ')
+        prefix = '';
+    else
+        prefix = ' ';
+    if (end === input.value.length || input.value[end] === ' ')
+        suffix = '';
+    else
+        suffix = ' ';
+
+    new_value = String.concat(input.value.substring(0, start),
+            prefix,
+            this.getAttribute("tex"),
+            suffix,
+            input.value.substring(end));
+
+    input.value = new_value;
+
+    input.onkeyup();
 }
 
 function build_keyboard(aLayout, aDiv) {
