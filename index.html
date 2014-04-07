@@ -1,37 +1,40 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>TeXZilla Demo</title>
-<meta name="viewport" content="width=device-width">
-<link rel="stylesheet" type="text/css" href="style/base.css">
-<link rel="stylesheet" type="text/css" href="style/headers.css"/>
-<link rel="stylesheet" type="text/css" href="style/buttons.css"/>
-<link rel="stylesheet" type="text/css" href="style/input_areas.css"/>
-<link rel="stylesheet" type="text/css" href="style/app.css"/>
-<script src="js/TeXZilla.js"></script>
-<script src="js/keyboard.js"></script>
-<script src="js/app.js"></script>
+    <meta charset="utf-8">
+    <title>TeXZilla Demo</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="style/base.css">
+    <link rel="stylesheet" type="text/css" href="style/headers.css" />
+    <link rel="stylesheet" type="text/css" href="style/buttons.css" />
+    <link rel="stylesheet" type="text/css" href="style/input_areas.css" />
+    <link rel="stylesheet" type="text/css" href="style/app.css" />
+    <script src="js/TeXZilla.js"></script>
+    <script src="js/keyboard.js"></script>
+    <script src="js/app.js"></script>
 </head>
+
 <body role="application" id="list-view">
-<section role="region" id="welcome">
-<header>
-<h1 style='float:left;'>TeXZilla Demo</h1>
-</header>
-<div>
-  <div id='notebook' style="margin:5px;">
-  </div>
-  <textarea id='tex-input' onkeyup='preview_equation()'></textarea>
-  <div id='math-keyboard'>
-  </div>
-  <button id='tex-button' type='button' onclick='add_equation_button()'>Add</button>
-<script>
-window.onload = function() {
-build_keyboard(LAYOUT, document.getElementById('math-keyboard'));
-setup_old_equations();
-}
-</script>
-</div>
-</section>
+    <section role="region" id="welcome">
+        <header>
+            <h1 style='float:left;'>TeXZilla Demo</h1>
+        </header>
+        <div>
+            <div id='notebook' style="margin:5px;">
+            </div>
+            <textarea id='tex-input' onkeyup='preview_equation()'></textarea>
+            <div id='math-keyboard'>
+            </div>
+            <button id='tex-button' type='button' onclick='add_equation_button()'>Add</button>
+            <script>
+                window.onload = function() {
+                    build_keyboard(LAYOUT, document.getElementById('math-keyboard'));
+                    setup_old_equations();
+                }
+            </script>
+        </div>
+    </section>
 </body>
+
 </html>
