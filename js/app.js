@@ -19,10 +19,10 @@ request.onupgradeneeded = function(event) {
 
 /* Equation Handles */
 
-function rm_equation(delete_icon) {
+function rm_equation() {
     if (RM_ENABLE) {
-        var notebook = delete_icon.parentElement;
-        var equation = delete_icon.nextElementSibling;
+        var notebook = this.parentElement;
+        var equation = this.nextElementSibling;
 
         var transaction = db.transaction(["equations"], "readwrite");
         var objectStore = transaction.objectStore("equations");
@@ -30,7 +30,7 @@ function rm_equation(delete_icon) {
         objectStore.delete(equation.getAttribute('id'));
 
         notebook.removeChild(equation);
-        notebook.removeChild(delete_icon);
+        notebook.removeChild(this);
     } else {
         console.log('In update state.');
         return 1;
@@ -126,7 +126,7 @@ function add_equation(tex_str, equation_id, saved) {
         var del = document.createElement('img');
         del.setAttribute('src', 'building-blocks/images/icons/actionicon_delete_red_30x30.png');
         del.setAttribute('class', 'delete');
-        del.setAttribute('onclick', 'rm_equation(this);');
+        del.addEventListener('click', rm_equation, false);
 
         notebook.appendChild(del);
         notebook.appendChild(equation);
@@ -174,4 +174,14 @@ function setup_old_equations() {
             preview_equation();
         }
     };
+}
+
+/* App setup */
+window.onload = function() {
+    var textarea = document.getElementById("tex-input");
+    textarea.addEventListener('keyup', preview_equation, false);
+    var button = document.getElementById("tex-button");
+    button.addEventListener('click', add_equation_button, false);
+    build_keyboard(LAYOUT, document.getElementById('math-keyboard'));
+    setup_old_equations();
 }
