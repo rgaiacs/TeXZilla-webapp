@@ -1,12 +1,9 @@
-@import url('mathml-fonts/resource/mathml.css');
-
 #notebook {
-  font-size: 1.5em;
+    font-size: 1.5em;
 }
-
 .delete {
-  height:1.3em;
-  float:right;
-  position:absolute;
-  right:.5em;
+    height: 1.3em;
+    float: right;
+    position: absolute;
+    right: .5em;
 }

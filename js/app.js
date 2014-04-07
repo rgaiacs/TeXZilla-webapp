@@ -124,7 +124,7 @@ function add_equation(tex_str, equation_id, saved) {
         }
 
         var del = document.createElement('img');
-        del.setAttribute('src', 'style/images/icons/actionicon_delete_red_30x30.png');
+        del.setAttribute('src', 'building-blocks/images/icons/actionicon_delete_red_30x30.png');
         del.setAttribute('class', 'delete');
         del.setAttribute('onclick', 'rm_equation(this);');
 
