@@ -67,5 +67,5 @@ js/TeXZilla.js:
 ${KEYBOARDJS}: ${KEYBOARDFILES}
 	cat $^ > $@
 
-style/icons/%.png: style/icons/TeXZilla.svg
+icon/%.png: icon/TeXZilla.svg
 	convert -density 512 -background none $< -resize $(subst icon/TeXZilla-,,$(basename $@)) $@
