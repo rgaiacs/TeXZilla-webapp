@@ -1,6 +1,14 @@
-#notebook {
-    font-size: 1.5em;
+html, body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background: #fff;
 }
+
+#notebook {
+    margin:5px;
+}
+
 .delete {
     height: 1.3em;
     float: right;
