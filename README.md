@@ -36,6 +36,7 @@ The file `texzilla-webapp.zip` is your package app.
 ## Screenshots
 
 <img src='screenshot/home.png' />
+
 <img src='screenshot/input.png' />
+
 <img src='screenshot/saved.png' />
-<img src='screenshot/home.png' />
