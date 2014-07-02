@@ -38,6 +38,12 @@ help:
 ## build    : build some files need for this webapp
 build: ${ICONS} ${KEYBOARDJS} ${TeXZilla}
 
+## beautify : beautify source code
+beautify:
+	html-beautify -r index.html
+	css-beautify -r style/app.css
+	js-beautify -r js/app.js js/keyboard-layout.js js/keyboard-render.js manifest.webapp
+
 ## package  : package the webapp
 package: build
 	zip -r texzilla-webapp.zip ${PACKAGELIST}
