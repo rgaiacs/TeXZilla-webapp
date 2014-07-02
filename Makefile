@@ -1,42 +1,65 @@
-ICONS = $(foreach size, 32 60 90 120 128 256, style/icons/TeXZilla-$(size).png)
+## ############################### Variables ################################
+
+# Software Definitions
+
+## SVG2PNG  : program to convert SVG to PNG
+SVG2PNG = convert
+## PACKAGE  : the name of the package app
+PACKAGE = texzilla-webapp.zip
+## TeXZilla : the name of TeXZilla file
+TeXZilla = js/TeXZilla.js
+
+# Package files
+
+ICONS = $(foreach size, 32 60 90 120 128 256, icon/TeXZilla-$(size).png)
 
 KEYBOARDJS = js/keyboard.js
 
 KEYBOARDFILES = js/keyboard-layout.js \
 		js/keyboard-render.js
 
-PACKAGELIST = building-blocks \
-	      index.html \
-	      js \
+PACKAGELIST = ${TeXZilla} \
 	      LICENSE \
+	      building-blocks \
+	      icon/*.png \
+	      index.html \
+	      js/app.js \
+	      js/keyboard.js \
 	      manifest.webapp \
-	      README.md \
-	      style \
-	      texzilla
+	      style
 
-# main rules
+## 
+## ################################ Commands ################################
 
+## help     : print this text
 help:
 	@grep -e '^##' Makefile | sed 's/## //'
 
 ## build    : build some files need for this webapp
-build: ${ICONS} ${KEYBOARDJS}
+build: ${ICONS} ${KEYBOARDJS} ${TeXZilla}
 
 ## package  : package the webapp
 package: build
 	zip -r texzilla-webapp.zip ${PACKAGELIST}
 
-
-## cleanall : remove the files built previously
-cleanall:
+## clean    : remove the files built previously
+clean:
 	rm -f ${ICONS}
 	rm -f ${KEYBOARDJS}
-	rm -f texzilla-webapp.zip
+	rm -f ${PACKAGE}
+
+## cleanall : remove all files
+cleanall: clean
+	rm -f ${TeXZilla}
 
 # Auxiliar rules
+
+js/TeXZilla.js:
+	wget https://raw.githubusercontent.com/fred-wang/TeXZilla/TeXZilla-0.9.7/TeXZilla.js \
+	    -O ${TeXZilla}
 
 ${KEYBOARDJS}: ${KEYBOARDFILES}
 	cat $^ > $@
 
 style/icons/%.png: style/icons/TeXZilla.svg
-	convert -background none $< -resize $(subst style/icons/TeXZilla-,,$(basename $@)) $@
+	convert -density 512 -background none $< -resize $(subst icon/TeXZilla-,,$(basename $@)) $@

@@ -10,8 +10,9 @@ See [LICENSE](LICENSE).
 ## Dependencies
 
 - [TeXZilla](https://github.com/fred-wang/TeXZilla)
-  - Directory: `texzilla`
   - License: Mozilla Public License, v. 2.0
+
+  Will be download when building.
 - [Building Blocks](https://github.com/buildingfirefoxos/Building-Blocks)
   - Directory: `building-blocks`
   - License: Apache License, Version 2.0

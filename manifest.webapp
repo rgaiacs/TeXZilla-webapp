@@ -16,11 +16,11 @@
   },
   "default_locale": "en-US",
   "icons": {
-    "32": "/style/icons/TeXZilla-32.png",
-    "60": "/style/icons/TeXZilla-60.png",
-    "90": "/style/icons/TeXZilla-90.png",
-    "120": "/style/icons/TeXZilla-120.png",
-    "128": "/style/icons/TeXZilla-128.png",
-    "256": "/style/icons/TeXZilla-256.png"
+    "32": "/icon/TeXZilla-32.png",
+    "60": "/icon/TeXZilla-60.png",
+    "90": "/icon/TeXZilla-90.png",
+    "120": "/icon/TeXZilla-120.png",
+    "128": "/icon/TeXZilla-128.png",
+    "256": "/icon/TeXZilla-256.png"
   }
 }
