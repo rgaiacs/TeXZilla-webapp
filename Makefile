@@ -60,7 +60,7 @@ cleanall: clean
 
 # Auxiliar rules
 
-js/TeXZilla.js:
+${TeXZilla}:
 	wget https://raw.githubusercontent.com/fred-wang/TeXZilla/TeXZilla-0.9.7/TeXZilla.js \
 	    -O ${TeXZilla}
 
