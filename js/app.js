@@ -74,7 +74,11 @@ function preview_equation() {
         equation.setAttribute('id', 'preview');
         old_preview = document.getElementById('preview');
         notebook.insertBefore(equation, old_preview);
-        notebook.removeChild(old_preview);
+        try {
+            notebook.removeChild(old_preview);
+        } catch (error) {
+            console.log("No preview to remove.");
+        }
     }
 }
 
@@ -159,21 +163,26 @@ RM_ENABLE = true;
 
 function setup_old_equations() {
     // Add to indexedDB
-    var transaction = db.transaction(["equations"], "readwrite");
-    var objectStore = transaction.objectStore("equations");
-    var cursors = objectStore.openCursor().onsuccess = function(event) {
-        var cursor = event.target.result;
+    try {
+        var transaction = db.transaction(["equations"], "readwrite");
+        var objectStore = transaction.objectStore("equations");
+        var cursors = objectStore.openCursor().onsuccess = function(event) {
+            var cursor = event.target.result;
 
-        if (cursor) {
-            add_equation(cursor.value.tex, cursor.value.id, true);
+            if (cursor) {
+                add_equation(cursor.value.tex, cursor.value.id, true);
 
-            cursor.
-            continue ();
-        } else {
-            add_preview();
-            preview_equation();
-        }
-    };
+                cursor.
+                continue ();
+            } else {
+                add_preview();
+                preview_equation();
+            }
+        };
+    } catch (error) {
+        console.log("Couldn't retrieve old equations.");
+        console.log("Maybe this is the first time that you use this app.");
+    }
 }
 
 /* App setup */
