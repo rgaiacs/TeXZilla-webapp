@@ -4,14 +4,20 @@
 <head>
     <meta charset="utf-8">
     <title>TeXZilla</title>
-    <meta name="viewport" content="width=device-width">
     <!-- Building blocks -->
     <link rel="stylesheet" type="text/css" href="building-blocks/headers.css" />
     <link rel="stylesheet" type="text/css" href="building-blocks/buttons.css" />
     <link rel="stylesheet" type="text/css" href="building-blocks/input_areas.css" />
+    <link rel="stylesheet" type="text/css" href="building-blocks/icons/settings_icons.css" />
+
+    <!-- Transitions -->
+    <link rel="stylesheet" href="building-blocks/transitions.css">
+
+    <!-- Util CSS: some extra tricks -->
+    <link rel="stylesheet" href="building-blocks/util.css">
 
     <!-- Webapp specific style -->
-    <link rel="stylesheet" type="text/css" href="style/app.css" />
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
 
     <!-- TeXZilla -->
     <script src="js/TeXZilla.js"></script>
@@ -19,23 +25,23 @@
     <!-- Prototype of keyboard -->
     <script src="js/keyboard.js"></script>
 
-    <!-- Webapp specific -->
+    <!-- App Javascript -->
     <script src="js/app.js"></script>
 </head>
 
 <body role="application" id="list-view">
     <section role="region" id="welcome">
-        <header>
+        <header class="fixed">
             <menu type="toolbar">
-                <button id='tex-button' type='button'>Add</button>
+                <a id="tex-button"><span class="icon icon-add">add</span></a>
             </menu>
             <h1 style='float:left;'>TeXZilla</h1>
         </header>
-        <div>
+        <article id="main" class="scrollable header">
             <div id='notebook'></div>
             <textarea id='tex-input'></textarea>
             <div id='math-keyboard'></div>
-        </div>
+        </article>
     </section>
 </body>
 
