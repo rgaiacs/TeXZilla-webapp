@@ -68,4 +68,8 @@ ${KEYBOARDJS}: ${KEYBOARDFILES}
 	cat $^ > $@
 
 icon/%.png: icon/TeXZilla.svg
-	convert -density 512 -background none $< -resize $(subst icon/TeXZilla-,,$(basename $@)) $@
+	convert \
+	    -density 512 \
+	    -background none $< \
+	    -resize $(subst icon/TeXZilla-,,$(basename $@))x$(subst icon/TeXZilla-,,$(basename $@))! \
+	    $@
